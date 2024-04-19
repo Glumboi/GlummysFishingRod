@@ -8,6 +8,10 @@
 
 class WinAPIHooking
 {
+public:
+	void Init() const;
+
+private:
 	//Can expose these to the public scope if needed
 #pragma region TypesAndOriginals
 	using MessageBoxA_t = int(WINAPI*)(HWND, LPCSTR, LPCSTR, UINT);
@@ -21,6 +25,4 @@ class WinAPIHooking
 		LPCSTR lpCaption,
 		UINT uType);
 #pragma endregion
-public:
-	void Init() const;
 };

@@ -65,13 +65,7 @@ VOID Helpers::InjectHooksToNewProcess(const char* executable, const char* dll)
 	if (prCreate)
 	{
 		WaitForSingleObject(processInformation.hProcess, 200);
-		/*HANDLE hProcess = OpenProcess(
-			PROCESS_ALL_ACCESS,
-			FALSE,
-			Helpers::GetProcessIdByName(processExe.c_str()));*/
-
 		InjectDll(processInformation.hProcess, dll);
-
 		CloseHandle(processInformation.hThread);
 		CloseHandle(processInformation.hProcess);
 	}
